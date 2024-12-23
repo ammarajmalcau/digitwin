@@ -29,138 +29,148 @@
 
     <link name="world"> </link>
     <joint name="world_to_table" type="fixed">
-        <origin xyz="1 0 0" rpy="1.5708 0 0"/>
+        <origin xyz="1 0 0" rpy="0 0 0"/>
         <parent link="world"/>
         <child link="table"/>
     </joint>
 
     <link name="table">
         <visual>
-            <origin xyz="2 0 0" rpy="0 0 0"/>
+            <origin xyz="0 0 0" rpy="0 0 0"/>
             <geometry>
-                <box size="5 0.1 3"/>
+                <box size="2 2 0.1"/>
             </geometry>
             <material name="gray"/>
         </visual>
         <collision>
             <origin xyz="1 0 0" rpy="0 0 0"/>
             <geometry>
-                <box size="5 0.1 3"/>
+                <box size="2 2 0.1"/>
             </geometry>
         </collision>
     </link>
+
+    <!-- Joint for stacking the floors vertically and allowing horizontal movement -->
     <joint name="table_to_firstFloor" type="prismatic">
-        <origin xyz="0 0.25 0" rpy="0 0 0"/>
+        <origin xyz="0 0 0.1" rpy="0 0 0"/> <!-- Positioning first floor directly on the table -->
         <parent link="table"/>
         <child link="firstFloor"/>
-        <axis xyz="1 0 0"/> <!-- Allows horizontal motion along the x-axis -->
+        <axis xyz="1 0 0"/> <!-- Horizontal movement along the x-axis -->
         <limit lower="-1.0" upper="1.0" effort="1000" velocity="1.0"/>
     </joint>
 
     <link name="firstFloor">
         <visual>
-            <origin xyz="0 0 0" rpy="0 0 0"/>
+            <origin xyz="0 0 1" rpy="0 0 0"/>
             <geometry>
-                <box size="1 2 1"/>
+                <box size="1 1 2"/>
             </geometry>
-            <material name="magenta"/>
+            <material name="red"/> <!-- Color changed to red -->
         </visual>
         <collision>
             <origin xyz="0 0 0" rpy="0 0 0"/>
             <geometry>
-                <box size="1 2 1"/>
+                <box size="1 1 2"/>
             </geometry>
         </collision>
     </link>
+
+    <!-- Joint for placing second floor on top of first floor, horizontal movement -->
     <joint name="firstFloor_to_secondFloor" type="prismatic">
-        <origin xyz="0 0.25 0" rpy="0 0 0"/>
+        <origin xyz="0 0 2" rpy="0 0 0"/> <!-- Placing second floor above the first floor -->
         <parent link="firstFloor"/>
         <child link="secondFloor"/>
-        <axis xyz="1 0 0"/> <!-- Allows horizontal motion along the x-axis -->
+        <axis xyz="1 0 0"/> <!-- Horizontal movement along the x-axis -->
         <limit lower="-1.0" upper="1.0" effort="1000" velocity="1.0"/>
     </joint>
 
     <link name="secondFloor">
         <visual>
-            <origin xyz="0 0 0" rpy="0 0 0"/>
+            <origin xyz="0 0 1" rpy="0 0 0"/>
             <geometry>
-                <box size="1 2 1"/>
+                <box size="1 1 2"/>
             </geometry>
-            <material name="magenta"/>
+            <material name="green"/> <!-- Color changed to green -->
         </visual>
         <collision>
-            <origin xyz="0 0 0" rpy="0 0 0"/>
+            <origin xyz="0 0 1" rpy="0 0 0"/>
             <geometry>
-                <box size="1 2 1"/>
+                <box size="1 1 2"/>
             </geometry>
         </collision>
     </link>
+
+    <!-- Joint for placing third floor on top of second floor, horizontal movement -->
     <joint name="secondFloor_to_thirdFloor" type="prismatic">
-        <origin xyz="0 0.25 0" rpy="0 0 0"/>
+        <origin xyz="0 0 2" rpy="0 0 0"/> <!-- Placing third floor above the second floor -->
         <parent link="secondFloor"/>
         <child link="thirdFloor"/>
-        <axis xyz="1 0 0"/> <!-- Allows horizontal motion along the x-axis -->
+        <axis xyz="1 0 0"/> <!-- Horizontal movement along the x-axis -->
         <limit lower="-1.0" upper="1.0" effort="1000" velocity="1.0"/>
     </joint>
 
     <link name="thirdFloor">
         <visual>
-            <origin xyz="0 0 0" rpy="0 0 0"/>
+            <origin xyz="0 0 1" rpy="0 0 0"/>
             <geometry>
-                <box size="1 2 1"/>
+                <box size="1 1 2"/>
             </geometry>
-            <material name="magenta"/>
+            <material name="blue"/> <!-- Color changed to blue -->
         </visual>
         <collision>
-            <origin xyz="0 0 0" rpy="0 0 0"/>
+            <origin xyz="0 0 1" rpy="0 0 0"/>
             <geometry>
-                <box size="1 2 1"/>
+                <box size="1 1 2"/>
             </geometry>
         </collision>
     </link>
+
+    <!-- Joint for placing fourth floor on top of third floor, horizontal movement -->
     <joint name="thirdFloor_to_fourthFloor" type="prismatic">
-        <origin xyz="0 0.25 0" rpy="0 0 0"/>
+        <origin xyz="0 0 2" rpy="0 0 0"/> <!-- Placing fourth floor above the third floor -->
         <parent link="thirdFloor"/>
         <child link="fourthFloor"/>
-        <axis xyz="1 0 0"/> <!-- Allows horizontal motion along the x-axis -->
+        <axis xyz="1 0 0"/> <!-- Horizontal movement along the x-axis -->
         <limit lower="-1.0" upper="1.0" effort="1000" velocity="1.0"/>
     </joint>
 
     <link name="fourthFloor">
         <visual>
-            <origin xyz="0 0 0" rpy="0 0 0"/>
+            <origin xyz="0 0 1" rpy="0 0 0"/>
             <geometry>
-                <box size="1 2 1"/>
+                <box size="1 1  2"/>
             </geometry>
-            <material name="magenta"/>
+            <material name="yellow"/> <!-- Color changed to yellow -->
         </visual>
         <collision>
             <origin xyz="0 0 0" rpy="0 0 0"/>
             <geometry>
-                <box size="1 2 1"/>
+                <box size="1 1 2"/>
             </geometry>
         </collision>
     </link>
+
+    <!-- Joint for placing fifth floor on top of fourth floor, horizontal movement -->
     <joint name="fourthFloor_to_fifthFloor" type="prismatic">
-        <origin xyz="0 0.25 0" rpy="0 0 0"/>
+        <origin xyz="0 0 2" rpy="0 0 0"/> <!-- Placing fifth floor above the fourth floor -->
         <parent link="fourthFloor"/>
         <child link="fifthFloor"/>
-        <axis xyz="1 0 0"/> <!-- Allows horizontal motion along the x-axis -->
+        <axis xyz="1 0 0"/> <!-- Horizontal movement along the x-axis -->
         <limit lower="-1.0" upper="1.0" effort="1000" velocity="1.0"/>
     </joint>
 
     <link name="fifthFloor">
         <visual>
-            <origin xyz="0 0 0" rpy="0 0 0"/>
+            <origin xyz="0 0 1" rpy="0 0 0"/>
             <geometry>
-                <box size="1 2 1"/>
+                <box size="1 1 2 "/>
             </geometry>
-            <material name="magenta"/>
+            <material name="cyan"/> <!-- Color changed to cyan -->
         </visual>
         <collision>
             <origin xyz="0 0 0" rpy="0 0 0"/>
             <geometry>
-                <box size="1 2 1"/>
+                <box size="1 1 2"/>
             </geometry>
         </collision>
     </link>

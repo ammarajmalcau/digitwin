@@ -1,0 +1,13 @@
+digraph G {
+"world" -> "camera"[label=" Broadcaster: default_authority\nAverage rate: 10000.0\nBuffer length: 0.0\nMost recent transform: 0.0\nOldest transform: 0.0\n"];
+"world" -> "table"[label=" Broadcaster: default_authority\nAverage rate: 10000.0\nBuffer length: 0.0\nMost recent transform: 0.0\nOldest transform: 0.0\n"];
+"firstFloor" -> "secondFloor"[label=" Broadcaster: default_authority\nAverage rate: 10.2\nBuffer length: 5.0\nMost recent transform: 1734974777.731888\nOldest transform: 1734974772.731871\n"];
+"table" -> "firstFloor"[label=" Broadcaster: default_authority\nAverage rate: 10.2\nBuffer length: 5.0\nMost recent transform: 1734974777.731888\nOldest transform: 1734974772.731871\n"];
+"fourthFloor" -> "fifthFloor"[label=" Broadcaster: default_authority\nAverage rate: 10.2\nBuffer length: 5.0\nMost recent transform: 1734974777.731888\nOldest transform: 1734974772.731871\n"];
+"thirdFloor" -> "fourthFloor"[label=" Broadcaster: default_authority\nAverage rate: 10.2\nBuffer length: 5.0\nMost recent transform: 1734974777.731888\nOldest transform: 1734974772.731871\n"];
+"secondFloor" -> "thirdFloor"[label=" Broadcaster: default_authority\nAverage rate: 10.2\nBuffer length: 5.0\nMost recent transform: 1734974777.731888\nOldest transform: 1734974772.731871\n"];
+edge [style=invis];
+ subgraph cluster_legend { style=bold; color=black; label ="view_frames Result";
+"Recorded at time: 1734974777.7399635"[ shape=plaintext ] ;
+}->"world";
+}
