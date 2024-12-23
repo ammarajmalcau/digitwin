@@ -1,3 +1,4 @@
+<?xml version="1.0"?>
 <robot xmlns:xacro="http://www.ros.org/wiki/xacro" name="twin">
     <material name="gray">
         <color rgba="0.5 0.5 0.5 1"/>
@@ -56,7 +57,7 @@
         <parent link="table"/>
         <child link="firstFloor"/>
         <axis xyz="1 0 0"/> <!-- Horizontal movement along the x-axis -->
-        <limit lower="-1.0" upper="1.0" effort="1000" velocity="1.0"/>
+        <limit lower="-0.1" upper="0.1" effort="1000" velocity="1.0"/>
     </joint>
 
     <link name="firstFloor">
@@ -81,7 +82,7 @@
         <parent link="firstFloor"/>
         <child link="secondFloor"/>
         <axis xyz="1 0 0"/> <!-- Horizontal movement along the x-axis -->
-        <limit lower="-1.0" upper="1.0" effort="1000" velocity="1.0"/>
+        <limit lower="-0.1" upper="0.1" effort="1000" velocity="1.0"/>
     </joint>
 
     <link name="secondFloor">
@@ -106,7 +107,7 @@
         <parent link="secondFloor"/>
         <child link="thirdFloor"/>
         <axis xyz="1 0 0"/> <!-- Horizontal movement along the x-axis -->
-        <limit lower="-1.0" upper="1.0" effort="1000" velocity="1.0"/>
+        <limit lower="-0.1" upper="0.1" effort="1000" velocity="1.0"/>
     </joint>
 
     <link name="thirdFloor">
@@ -131,7 +132,7 @@
         <parent link="thirdFloor"/>
         <child link="fourthFloor"/>
         <axis xyz="1 0 0"/> <!-- Horizontal movement along the x-axis -->
-        <limit lower="-1.0" upper="1.0" effort="1000" velocity="1.0"/>
+        <limit lower="-0.1" upper="0.1" effort="1000" velocity="1.0"/>
     </joint>
 
     <link name="fourthFloor">
@@ -156,7 +157,7 @@
         <parent link="fourthFloor"/>
         <child link="fifthFloor"/>
         <axis xyz="1 0 0"/> <!-- Horizontal movement along the x-axis -->
-        <limit lower="-1.0" upper="1.0" effort="1000" velocity="1.0"/>
+        <limit lower="-0.1" upper="0.1" effort="1000" velocity="1.0"/>
     </joint>
 
     <link name="fifthFloor">
